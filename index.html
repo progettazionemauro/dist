@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - OK_Airtable_by_Mauro_prova</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<head>
+ <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet"> -->
+    
+     <!-- serve per l'inserimento delle vuetify -->
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    
+    <!-- serve per l'inserimento delle icone -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+     <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    
+     <!-- serve per l'inserimento di axios -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+     <!-- serve per l'inserimento di bootstrap -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   
+</head>
+<body>
+<div id="app">
+    <v-app>
+        <v-content class="container align-center px-1">
+            <h2 class="font-weight-light mb-2"> Vuetify CRUD Example </h2>
+            <v-card>
+                <v-data-table :headers="headers" :items="items" mobile-breakpoint="800" class="elevation-0">
+                    <template v-slot:item.actions="{ item }">
+                        <div class="text-truncate">
+                            <v-icon small class="mr-2" @click="showEditDialog(item)" color="blue"> mdi-pencil </v-icon>
+                            <v-icon small @click="deleteItem(item)" color="pink"> mdi-delete </v-icon>
+                        </div>
+                    </template>
+                    <template v-slot:item.Nome="{ item }">
+                        <div class="text-truncate" style="width: 180px">
+                            {{item.Nome}}
+                        </div>
+                    </template>
+               <!--      <template v-slot:item.data="{ item }">
+                        <div class="text-truncate" style="width: 180px">
+                            {{item.DATA}}
+                        </div>
+                    </template>
+                    <template v-slot:item.descrizione="{ item }">
+                        <div class="text-truncate" style="width: 180px">
+                            {{item.Descrizione_Progetto}}
+                        </div>
+                    </template>
+                   <!-- <template v-slot:item.data_inizio="{ item }">
+                        <div class="text-truncate" style="width: 180px">
+                            <a :href="item.URL" target="_new">{{item.DATA_INIZIO}}</a>
+                        </div>
+                        
+                    </template>!-->
+                </v-data-table>
+                <!-- this dialog is used for both create and update -->
+                <v-dialog v-model="dialog" max-width="500px">
+                    <template v-slot:activator="{ on }">
+                        <div class="d-flex">
+                            <v-btn color="primary" dark class="ml-auto ma-3" v-on="on"> New <v-icon small>mdi-plus-circle-outline</v-icon>
+                            </v-btn>
+                        </div>
+                    </template>
+                    <v-card>
+                        <v-card-title>
+                            <span v-if="editedItem.id">Edit {{editedItem.id}}</span>
+                            <span v-else>Create</span>
+                        </v-card-title>
+                        <v-card-text>
+                            <v-row>
+                                <v-col cols="12" sm="4">
+                                    <v-text-field v-model="editedItem.Nome" label="Nome"></v-text-field>
+                                 <v-col cols="12" sm="8">
+                            <v-text-field v-model="editedItem.Attivita" label="Attivita"></v-text-field>
+                          </v-col>
+                                </v-col>
+                                
+                            </v-row>
+                        </v-card-text>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn color="blue darken-1" text @click="showEditDialog()">Cancel</v-btn>
+                            <v-btn color="blue darken-1" text @click.native="saveItem(editedItem)">Save</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-dialog>
+            </v-card>
+        </v-content>
+    </v-app>
+</div>
+</body>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
