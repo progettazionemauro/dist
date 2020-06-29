@@ -39,6 +39,7 @@
             <!-- INSERIMENTO DELLE CASELLE DI IMMISSIONE DEI PARAMETRI -->
             <v-form>
                 <v-container fluid>
+                    <h2 class="font-weight-light mb-2"> Inserimento Parametri dell'API di Airtable </h2>
                   <v-row>
                     <v-col>
                         <v-text-field
@@ -65,27 +66,31 @@
                     </v-col>
                     
                 </v-row>
+
+                <h2 class="font-weight-light mb-2"> Inserimento del numero di campi in tabella</h2>
                 <v-row>
                     <v-col>
                         <v-text-field
-                          v-model="airtablename"
-                          label="NOME BASE DATI AIRTABLE"
+                          v-model="numCampi"
+                          label="Quanti Record Nomi di Campi si voglio inserire?"
                           filled
                         ></v-text-field>
                       </v-col>
-            
+                    </v-row>
+                    <h2 class="font-weight-light mb-2"> Nome dei Campi</h2>
+                <v-row>
                     <v-col>
                       <v-text-field
-                        v-model="apitoken"
-                        label="APITOKEN"
+                        v-model="nome1"
+                        label=""
                         filled
                       ></v-text-field>
                     </v-col>
             
                     <v-col>
                       <v-text-field
-                        v-model="airtableapp"
-                        label="AIRTABLEAPP"
+                        v-model="nome2"
+                        label=""
                         filled
                       ></v-text-field>
                     </v-col>
