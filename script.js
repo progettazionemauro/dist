@@ -31,7 +31,7 @@ new Vue({
   },
   methods: {
            add () {
-           this.textFields.push({ 
+           this.items.push({ 
              label1: "foo", 
              value1: "",
              label2: "bar",
