@@ -22,13 +22,27 @@ new Vue({
         ],
         items: [],
         dialog: false,
-        editedItem: {}
+        editedItem: {},
+        textFields: []
     }
   },
   mounted() {
     this.loadItems()
   },
   methods: {
+           add () {
+           this.textFields.push({ 
+             label1: "foo", 
+             value1: "",
+             label2: "bar",
+             value2: ""
+           })
+        },
+       
+        remove (index) {
+            this.textFields.splice(index, 1)
+        },
+
     showEditDialog(item) {
         this.editedItem = item||{}
         this.dialog = !this.dialog

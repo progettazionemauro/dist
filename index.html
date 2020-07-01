@@ -69,7 +69,7 @@
 
                 <h2 class="font-weight-light mb-2"> Inserimento del numero di campi in tabella</h2>
                 <v-row>
-                    <v-col cols="3">
+                    <v-col cols="3"> 
                         <v-text-field
                           v-model="numCampi"
                           label="Inserire n° di Colonne"
@@ -78,24 +78,28 @@
                       </v-col>
                     </v-row>
                     <h2 class="font-weight-light mb-2"> Nome dei Campi</h2>
-                <v-row>
-                    <v-col>
-                      <v-text-field
-                        v-model="nome1"
-                        label=""
-                        filled
-                      ></v-text-field>
-                    </v-col>
+    
+                    <v-row>
+       <v-col cols="2" sm="4">
+        <div
+            v-for="(textField, i) in textFields"
+            :key="i"
+            class="text-fields-row"
+            >
+              <v-text-field
+              :label="textField.label1"
+              v-model="textField.value1"
+              ></v-text-field>
+              
+              <v-text-field
+              :label="textField.label2"
+              v-model="textField.value2"
+              ></v-text-field>
+              
             
-                    <v-col>
-                      <v-text-field
-                        v-model="nome2"
-                        label=""
-                        filled
-                      ></v-text-field>
-                    </v-col>
-                    
-                </v-row>
+                            </v-cols>
+                            
+                        </v-row>
             </v-container>
           </v-form>
 
@@ -113,22 +117,7 @@
                             {{item.Nome}}
                         </div>
                     </template>
-               <!--      <template v-slot:item.data="{ item }">
-                        <div class="text-truncate" style="width: 180px">
-                            {{item.DATA}}
-                        </div>
-                    </template>
-                    <template v-slot:item.descrizione="{ item }">
-                        <div class="text-truncate" style="width: 180px">
-                            {{item.Descrizione_Progetto}}
-                        </div>
-                    </template>
-                   <!-- <template v-slot:item.data_inizio="{ item }">
-                        <div class="text-truncate" style="width: 180px">
-                            <a :href="item.URL" target="_new">{{item.DATA_INIZIO}}</a>
-                        </div>
-                        
-                    </template>!-->
+               
                 </v-data-table>
                 <!-- this dialog is used for both create and update -->
                 <v-dialog v-model="dialog" max-width="500px">
