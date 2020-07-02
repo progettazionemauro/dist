@@ -67,9 +67,10 @@
                   </v-row> 
 
                     <v-row>
-                      <v-col cols="12" sm="4">
+                      <v-col cols="2" sm="3">
+                        <!-- INSERIMENTO CAMPI TABELLA -->
                         <p>CAMPI TABELLA</p>
-                        <v-data-table :headers="headers" :items="items" mobile-breakpoint="800" class="elevation-0">
+                        <v-data-table :headers="headers1" :items="items" mobile-breakpoint="800" class="elevation-0">
                           <template v-slot:item.actions="{ item }">
                               <div class="text-truncate">
                                   <v-icon small class="mr-2" @click="showEditDialog(item)" color="blue"> mdi-pencil </v-icon>
@@ -83,24 +84,11 @@
                           </template>
                      
                       </v-data-table>
-                        <!-- FUNZIONANTE --> 
-                        <v-overflow-btn
-                          class="my-2"  
-                                :items.id="items"
-                          label="Campi della Tabella"
-                          
-                        >
+                        
                                
-                           <!-- NON FUNZIONANTE
-                            <v-overflow-btn
-                          class="my-2"  
-                                :items.id={ item }
-                          label="Campi della Tabella"
-                          
-                        >    
-                        --> 
+                       
                       
-                      </v-overflow-btn>
+                      
                     </v-col>
               
                    

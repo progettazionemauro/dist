@@ -20,6 +20,9 @@ new Vue({
             { text: 'Attivita', value: 'Attivita' },
             { text: 'Action', value: 'actions', sortable: false },
         ],
+        headers1: [
+            { text: 'Nome', value: 'Nome' },
+              ],
         items: [],
         dialog: false,
         editedItem: {},
@@ -30,15 +33,7 @@ new Vue({
     this.loadItems()
   },
   methods: {
-           add () {
-           this.items.push({ 
-             label1: "foo", 
-             value1: "",
-             label2: "bar",
-             value2: ""
-           })
-        },
-       
+                  
         remove (index) {
             this.textFields.splice(index, 1)
         },
@@ -54,8 +49,7 @@ new Vue({
         .then((response) => {
             this.items = response.data.records.map((item)=>{
                 return {
-                    id: item.id,
-                    ...item.fields
+                    Nome: item.fields.Nome
                 }
             })
         }).catch((error) => {
@@ -104,7 +98,7 @@ new Vue({
             }
             this.dialog = !this.dialog
         })
-    },
+    }, 
     deleteItem(item) {
         //console.log('deleteItem', item)
         let id = item.id
