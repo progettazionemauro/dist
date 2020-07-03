@@ -24,7 +24,7 @@ new Vue({
             { text: 'Nome', value: 'Nome' },
               ],
         items: [],
-        //items:['Canada', 'United States'],
+        
         dialog: false,
         editedItem: {},
         textFields: []
